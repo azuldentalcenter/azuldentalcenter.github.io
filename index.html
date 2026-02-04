@@ -5,50 +5,64 @@
   <title>Azul Dental Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="icon" href="/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wgth@500&display=swap" rel="stylesheet">
-
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
   <style>
-    body {
+/* ===== GENERAL STYLING ===== */
+body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
-font-weight: 500;
+  font-weight: 500;
   background: #ffffff;
   color: #000000;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+.container {
+  max-width: 600px;
+  width: 100%;
+}
 
-    .container {
-      max-width: 600px;
-      padding: 20px;
-    }
+/* ===== FIXED SIZES FOR LAPTOP/DESKTOP ===== */
+h1 {
+  font-size: 32px; /* fixed size on big screens */
+  margin-bottom: 10px;
+}
 
-   
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+p {
+  font-size: 20px; /* fixed size on big screens */
+  opacity: 0.9;
+  margin: 15px 0;
+}
 
-    p {
-      font-size: 30px;
-      opacity: 0.9;
-    }
+#countdown {
+  font-size: 24px; /* fixed size on big screens */
+  margin-top: 20px;
+  font-weight: bold;
+}
 
-    #countdown {
-      font-size: 24px;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-	
-	footer {
+/* ===== VIDEO ===== */
+video {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
   padding: 20px 0;
   text-align: center;
   font-size: 14px;
@@ -65,51 +79,51 @@ footer a:hover {
   text-decoration: underline;
 }
 
-
-#countdown {
-  margin-top: 30px;
-  font-size: 24px;
-  font-weight: 600;
+/* ===== SCALE FOR SMALL SCREENS ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 6vw;   /* scales down on tablets */
+  }
+  p {
+    font-size: 4.5vw;
+  }
+  #countdown {
+    font-size: 5vw;
+  }
 }
 
-  </style>
+@media (max-width: 480px) {
+  h1 {
+    font-size: 8vw;   /* scales down on phones */
+  }
+  p {
+    font-size: 5vw;
+  }
+  #countdown {
+    font-size: 6vw;
+  }
+}
+</style>
+
 </head>
 
 <body>
-  <div class="page">
-    
-	<h1>Azul Dental Center</h1>
-    <div class="container">
-      <!-- LOGO -->
-  <video
-  autoplay
-  muted
-  loop
-  playsinline
-  width="500"
->
-  <source src="logo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <div class="container">
+    <h1>Azul Dental Center</h1>
 
+    <video autoplay muted loop playsinline poster="logo.png">
+      <source src="logo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-
-      
-      <p>Opening soon in Agadir</p>
-
-      <div id="countdown"></div>
-    </div>
-
-    <footer>
-      Contact us at 
-      <a href="mailto:contact@azuldentalcenter.com">
-        contact@azuldentalcenter.com
-      </a>
-    </footer>
-
+    <p>Opening soon in Agadir</p>
+    <div id="countdown"></div>
   </div>
 
-
+  <footer>
+    Contact us at 
+    <a href="mailto:contact@azuldentalcenter.com">contact@azuldentalcenter.com</a>
+  </footer>
 
   <script>
     // SET YOUR OPENING DATE HERE
@@ -132,13 +146,6 @@ footer a:hover {
       document.getElementById("countdown").innerHTML =
         days + " days " + hours + " hours " + minutes + " minutes";
     }, 1000);
-	
-	
   </script>
 </body>
- 
-
-
-
 </html>
-
